@@ -1,0 +1,100 @@
+#ForBody{
+ 	background-color: rgb(255, 210, 255);
+	background-repeat: no-repeat;
+	width: 100%;
+	height: auto;
+	overflow: scroll;
+	overflow-x:hidden;
+}
+.ForContentBox{
+	background-color: rgb(255, 230, 255);
+	opacity: .8;
+	width: 40%;
+	height: 30%;
+	padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+  font-family: helvetica;
+  text-align:center;
+}
+#delButton{
+  margin-left:75%;
+  margin-right:auto;
+  border-color: black;
+  color: black;
+  background-color: rgb(255,210,255);
+  padding-left: .7em;
+  padding-right: .7em;
+  padding-top: .3em;
+  padding-bottom: .3em;
+  border-width: .5px;
+}
+#addButton{
+  margin-top: 1em;
+  color: black;
+  border: none;
+  background-color: rgb(255,230,255);
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  margin-left: 48%;
+  margin-right:auto;
+  font-size: 18px;
+}
+#submitButton{
+  margin-top: 1em;
+  color: black;
+  border: none;
+  background-color: rgb(255,230,255);
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  margin-left: 47%;
+  margin-right:auto;
+  font-size: 16px;
+}
+.ForTitleBox{
+  width: 40%;
+  height: 30%;
+  padding: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: helvetica;
+  font-size: 28px;
+  text-align: center;
+}
+#main{
+  display: table;
+  clear: both;
+  content: "";
+  margin: auto;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+#main2{
+  display: flex;
+  clear: both;
+  content: "";
+  margin:auto;
+  resize: none;
+}
+#timeLeftWords{
+  margin-left: auto;
+  margin-right: auto;
+  font-family: helvetica;
+  font-size: 28px;
+  text-align: left;
+}
+#timeLeft{
+  font-family: helvetica;
+  font-size: 100px;
+  text-align: center;
+  width: 100%;
+  margin: none;
+  padding: none;
+}
