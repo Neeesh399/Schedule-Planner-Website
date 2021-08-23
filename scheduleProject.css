@@ -1,62 +1,94 @@
 #ForBody{
- 	background-color: rgb(255, 210, 255);
+  position: absolute;
+ 	background-color: rgb(250, 250, 250);
 	background-repeat: no-repeat;
 	width: 100%;
-	height: auto;
-	overflow: scroll;
+  height: 100%;
+	overflow:scroll;
 	overflow-x:hidden;
+  margin: 0;
+}
+.inputsForCRN{
+  width: 6vmax;
+  height: 1vmax;
+  background-color: rgb(250, 250, 250);
+  margin-top: 9px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: .5px red solid;
+  text-align: center;
+  font-size: 1.25vmax;
 }
 .ForContentBox{
-	background-color: rgb(255, 230, 255);
 	opacity: .8;
-	width: 40%;
-	height: 30%;
-	padding: 1em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: auto;
-  margin-right: auto;
+	width: 200px;
+	height: 35px;
   font-size: 18px;
-  font-family: helvetica;
-  text-align:center;
+  font-family: 'Share Tech Mono', monospace;
+}
+#ForForm{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 #delButton{
-  margin-left:75%;
-  margin-right:auto;
-  border-color: black;
   color: black;
-  background-color: rgb(255,210,255);
-  padding-left: .7em;
-  padding-right: .7em;
-  padding-top: .3em;
-  padding-bottom: .3em;
-  border-width: .5px;
+  border: solid;
+  border-color: black;
+  border-width: .2px;
+  background-color: rgb(255,102,102);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 90px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 90px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 2vmax;
+  width: 3vmax;
+  font-size: 1.25vmax;
+  font-family: 'Fira Mono', monospace;
+  justify-content: center;
+  text-align: center;
 }
 #addButton{
-  margin-top: 1em;
   color: black;
-  border: none;
-  background-color: rgb(255,230,255);
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  padding-top: .5em;
-  padding-bottom: .5em;
-  margin-left: 48%;
-  margin-right:auto;
-  font-size: 18px;
+  border: solid;
+  border-color: black;
+  border-width: .2px;
+  background-color: rgb(153,255,153);
+  height: 2vmax;
+  width: 3vmax;
+  font-size: 1.25vmax;
+  border-top-left-radius: 90px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 90px;
+  border-bottom-right-radius: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-family: 'Fira Mono', monospace;
+  justify-content: center;
+  text-align: center;
 }
 #submitButton{
-  margin-top: 1em;
   color: black;
+  height: 2vmax;
+  width: 6vmax;
+  font-size: 1.25vmax;
+  border-width: .5px;
   border: none;
-  background-color: rgb(255,230,255);
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  padding-top: .5em;
-  padding-bottom: .5em;
-  margin-left: 47%;
-  margin-right:auto;
-  font-size: 16px;
+  background-color: rgb(230,230,230);
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border-radius: 90px;
+  font-family: 'Fira Mono', monospace;
+  justify-content: center;
+  text-align: center;
 }
 .ForTitleBox{
   width: 40%;
@@ -64,37 +96,260 @@
   padding: 3em;
   margin-left: auto;
   margin-right: auto;
-  font-family: helvetica;
+  font-family: 'Fira Mono', monospace;
   font-size: 28px;
   text-align: center;
 }
-#main{
-  display: table;
-  clear: both;
-  content: "";
-  margin: auto;
-  padding-left: 3em;
-  padding-right: 3em;
-}
-#main2{
+#roddyRichTheWrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  clear: both;
-  content: "";
-  margin:auto;
-  resize: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
-#timeLeftWords{
-  margin-left: auto;
+#middleText{
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 2vmax;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0%;
   margin-right: auto;
-  font-family: helvetica;
-  font-size: 28px;
-  text-align: left;
 }
-#timeLeft{
-  font-family: helvetica;
-  font-size: 100px;
+#timer{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9vmax;
+  margin-top: 10vmin;
+  margin-bottom: 10vmin;
+}
+#classText,
+#locationText,
+#timeText,
+#instructionType{
+  margin: 1vmin;
+}
+#right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 85%;
+  transform: translateX(-50%);
+  top: 35%;
+}
+#right-button-container{
+  display: flex;
+  justify-content: center; 
+}
+#submitButtonDiv{
+  display: flex;
+  justify-content: center;
+}
+#right-form-container{
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
+  font-size: 12px;
+  font-family: 'Share Tech Mono', monospace;
+  
+}
+#topBanner{
+  background-color: red;
+  padding-top: 30px;
+  margin-bottom: 20px;
   width: 100%;
-  margin: none;
-  padding: none;
+  display: flex;
+  flex-direction: row;
+}
+#topBannerText{
+  position: relative;
+  background-color: red;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 3vmax;
+  left:60%;
+  color: black;
+}
+#optionsButtons{
+  display: flex;
+  position: relative;
+  left: 75%;
+  transform: translateX(-10%);
+  transform: translateY(-25%);
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+#themeButton,
+#helpButton{
+  color: black;
+  background-color: red;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2vmax;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+#themeButton:hover,
+#helpButton:hover{
+  text-decoration: underline;
+}
+
+#map{
+  position: relative;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  padding-top: 150px;
+  height: 600px;
+  width: 800px;
+  padding-bottom: 50px;
+}
+#helpWrapper{
+  z-index: 100;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 35%;
+  font-family: 'Share Tech Mono', monospace;
+  border: 5px solid;
+  padding: 10px;
+  font-size: 16px;
+  background-color: rgb(250,250,250);
+  border-color: red;
+  flex-direction: column;
+}
+@media only screen and (max-width: 1325px){
+  #delButton{
+    height: 2.5vmax;
+    width: 4vmax;
+    font-size: 2vmax;
+    font-family: 'Fira Mono', monospace;
+    justify-content: center;
+    text-align: center;
+  }
+  #addButton{
+    height: 2.5vmax;
+    width: 4vmax;
+    font-size: 2vmax;
+    font-family: 'Fira Mono', monospace;
+    justify-content: center;
+    text-align: center;
+  }
+  #submitButton{
+    height: 2.5vmax;
+    width: 8vmax;
+    font-size: 2vmax;
+    font-family: 'Fira Mono', monospace;
+    justify-content: center;
+    text-align: center;
+  }
+  .inputsForCRN{
+    width: 8vmax;
+    height: 2vmax;
+    text-align: center;
+    font-size: 2vmax;
+  }
+  #map{
+    top: 80%;
+    transform: translate(-50%, -10%);
+    height: 540px;
+    width: 720px;
+  }
+  #themeButton,
+  #helpButton{
+    font-size: 2vmax;
+  }
+  #optionsButtons{
+    left: 72%;
+  }
+  #helpWrapper{
+    width: 80%;
+    height: 45%;
+  }
+}
+@media only screen and (max-width: 768px){
+  #ForBody{
+   	background-color: rgb(250, 250, 250);
+  	background-repeat: no-repeat;
+    height: 150%;
+  	display: flex;
+    flex-direction: column;
+  	overflow:scroll;
+  	overflow-x:hidden;
+  } 
+  #right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 55%;
+    padding-bottom: 100px;
+  }
+  #delButton{
+    height: 4vmax;
+    width: 8vmax;
+    font-size: 2.5vmax;
+    font-family: 'Fira Mono', monospace;
+    justify-content: center;
+    text-align: center;
+  }
+  #addButton{
+    height: 4vmax;
+    width: 8vmax;
+    font-size: 2.5vmax;
+    font-family: 'Fira Mono', monospace;
+    justify-content: center;
+    text-align: center;
+  }
+  #submitButton{
+    height: 4vmax;
+    width: 16vmax;
+    font-size: 2.5vmax;
+    font-family: 'Fira Mono', monospace;
+    justify-content: center;
+    text-align: center;
+  }
+  .inputsForCRN{
+    width: 12vmax;
+    height: 3vmax;
+    text-align: center;
+    font-size: 2.5vmax;
+  }
+  #roddyRichTheWrapper{
+    top: 25%;
+    transform: translate(-50%, -25%);
+  }
+  #map{
+    top: 78%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+    padding-top: 150px;
+    height: 420px;
+    width: 90%;
+  }
+  #optionsButtons{
+    left: 40%;
+  }
+  #themeButton,
+  #helpButton{
+    font-size: 2.5vmax;
+  }
+  #topBannerText{
+    left: 20%;
+  }
+  #helpWrapper{
+    width: 80%;
+    height: 60%;
+  }
 }
