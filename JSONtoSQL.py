@@ -1,71 +1,37 @@
 #This file takes the information pertaining to NJIT courses (stored in a .txt file)
 #and sorts it into a SQL table
 
+from njit_schedule4 import parse_jsonp, CourseSchedule
+from njit_schedule4Helper import Course2, SingleClass
 import json
 import mysql.connector
+import requests
 
-f = open("")
-
-db = mysql.connector.connect(host='', user='', passwd='', db='' )
-
-data_as_string = f.read()
-occurences_section = data_as_string.count('"SECTION": ')
-num_of_courses = data_as_string.count('"INSTRUCTORUCID"')
-#print(occurences_section)
+db = mysql.connector.connect(host='', user='', passwd='', db='')
 
 cursor = db.cursor()
 
-initial = 0 #The initial position will always be 0
+def get_schedule(term_id: str = ""):
+    url = f"https://uisnetpr01.njit.edu/courseschedule/alltitlecourselist.aspx?term={term_id}"
+    return CourseSchedule.from_dict(parse_jsonp(requests.get(url).content))
 
 
-for each in range(occurences_section):
-    initial = (data_as_string.find('"SECTION": ', initial, -1) + 1)
-    
-    begining = data_as_string.rfind("COURSE", 0, initial)
-    end = data_as_string.find("}", initial, -1)
-    temp_string = data_as_string[begining:end]
-    
-    begining_course = temp_string.rfind("COURSE", 0, initial)
-    end_course = temp_string.find('",', begining_course,-1) 
-    course = temp_string[(begining_course+10):end_course] #First variable, course
-    print(course+ " ")
+allData = get_schedule('''202190''')
+for i in allData.courses:
+    course = Course2(str(i))
+    for ii in range(1, len(course.getClasses())):
+        aClass = SingleClass(course.getClasses()[ii])
 
-    begining_crn = temp_string.find("CALLNR")
-    crn = temp_string[(begining_crn+10):(begining_crn+15)] #Second variable, section
-    print(crn+ " ")
+        print(aClass.subjectId + " " + aClass.crn + " " + aClass.instructionMethod + " " + aClass.days + " " + aClass.startTime + " " + aClass.endTime + " " + aClass.sectionId + " " + aClass.instructor + " " + aClass.building + " " + aClass.roomNum)
+        
+        add_class = ("INSERT INTO scheduleInfoFall2021 " "(course, crn, instructionMethod, day, start, end, section, instructor, building, room) " "VALUE (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+        data_class = (aClass.subjectId, aClass.crn, aClass.instructionMethod, aClass.days, aClass.startTime, aClass.endTime, aClass.sectionId, aClass.instructor, aClass.building, aClass.roomNum)
 
-    begining_days = temp_string.find("MTG_DAYS") #Third variable, days
-    end_days = temp_string.rfind('"')
-    if begining_days == -1:
-        days = "None"
-    else:
-        days = temp_string[(begining_days+12):(end_days)]
-    print(days+ " ")
+        cursor.execute(add_class, data_class)
 
-    begining_startTime = temp_string.find("START_TIME")
-    if begining_days == -1:
-        startTime = "None"
-    else:
-        startTime = temp_string[(begining_startTime+14):(begining_startTime+18)] #Fourth variable, start time
-    print(startTime+ " ")
+        db.commit()
+        
 
-    begining_endTime = temp_string.find("END_TIME")
-    if begining_days == -1:
-        endTime = "None"
-    else:
-        endTime = temp_string[(begining_endTime+12):(begining_endTime+16)] #Fifth variable, end time
-    print(endTime+ " ")
-    
-    begining_section = temp_string.find("SECTION")
-    section = temp_string[(begining_section+11):(begining_section+14)] #Sixth variable, section
-    print(section+ "\n")
-
-    add_class = ("INSERT INTO scheduleInfo " "(course, crn, day, start, end, section) " "VALUES (%s, %s, %s, %s, %s, %s)") #This needs an sql query
-    data_class = (course, crn, days, startTime, endTime, section)
-
-    cursor.execute(add_class, data_class)
-
-    db.commit()
 
 cursor.close()
 db.close()
